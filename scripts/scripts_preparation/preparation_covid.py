@@ -24,7 +24,7 @@ import glob
 final_path = r'..\..\datasets_cleaned\test.csv'
 
 def concat_dataset():
-    path = r'C:\Users\Bast\Desktop\TP_COVID_YNOV\covid_departements_datasets' # use your path
+    path = r'..\..\datasets_raw\covid_departements_datasets' # use your path
     all_files = glob.glob(path + "/*.csv")
     li = []
     
@@ -93,7 +93,7 @@ regions_france = {"Auvergne-Rhône-Alpes" : ["Ain", "Allier", "Ardêche", "Canta
                   }
 
 
-def pp(x):
+def set_region(x):
     #print(row.departement)
     region = ""
     for key, value in regions_france.items():
@@ -101,14 +101,13 @@ def pp(x):
             region = key
     return region
 
-dataset['region'] = dataset.departement.map(lambda x: pp(x))
-print(dataset['region'].head())
+dataset['region'] = dataset.departement.map(lambda x: set_region(x))
 
 save_csv(dataset)
 
 
 
 
-
 # 4) Recherche coordonnées
+dataset['region'].unique()
 
