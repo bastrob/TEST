@@ -1,0 +1,2 @@
+*.txt filter=lfs diff=lfs merge=lfs -text
+tweets_datasets/** filter=lfs diff=lfs merge=lfs -text
